@@ -6,7 +6,7 @@ import "./style.css";
 const PokemonPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
-  const { pokemon } = usePokemon(id || "");
+  const { pokemon, isFetching } = usePokemon(id || "");
 
   return (
     <div className="pokemon">
@@ -18,12 +18,15 @@ const PokemonPage = () => {
       >
         <img src={HomeIcon} />
       </div>
-      {pokemon ? (
+      {isFetching ? (
+        <p>Loading...</p>
+      ) : pokemon ? (
         <div className="pokemon__wrapper">
           <p className="pokemon__name">{pokemon.name}</p>
           <img
             className="pokemon__image"
             src={`https://lorempokemon.fakerapi.it/pokemon/200/${id}`}
+            alt={pokemon.name}
           />
           <div className="pokemon__params-table">
             <span>Id</span>
@@ -43,7 +46,7 @@ const PokemonPage = () => {
           </div>
         </div>
       ) : (
-        <p>loader</p>
+        <p>Empty Pokemon</p>
       )}
     </div>
   );
