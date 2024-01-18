@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
 import "./style.css";
 
 interface Props {
@@ -8,10 +8,8 @@ interface Props {
 const PokemonCard = (props: Props) => {
   const { pokemon } = props;
   const navigate = useNavigate();
-  const pokemonUrlGroups = pokemon.url.match(
-    /https:\/\/pokeapi.co\/api\/v2\/pokemon\/(\d+)\//
-  );
-  const pokemonId = pokemonUrlGroups?.length ? pokemonUrlGroups[1] : 0;
+  const urlParts = pokemon.url.split('/');
+  const pokemonId = urlParts[urlParts.length - 2]
 
   return (
     <div className="pokemon-card" onClick={() => navigate(`/${pokemonId}`)}>

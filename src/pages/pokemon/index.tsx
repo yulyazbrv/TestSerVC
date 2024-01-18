@@ -12,9 +12,7 @@ const PokemonPage = () => {
     <div className="pokemon">
       <div
         className="pokemon__back-wrapper"
-        onClick={() => {
-          navigate(-1);
-        }}
+        onClick={() => navigate('/')}
       >
         <img src={HomeIcon} />
       </div>
