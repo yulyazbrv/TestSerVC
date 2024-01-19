@@ -10,10 +10,7 @@ const PokemonPage = () => {
 
   return (
     <div className="pokemon">
-      <div
-        className="pokemon__back-wrapper"
-        onClick={() => navigate('/')}
-      >
+      <div className="pokemon__back-wrapper" onClick={() => navigate("/")}>
         <img src={HomeIcon} />
       </div>
       {isFetching ? (

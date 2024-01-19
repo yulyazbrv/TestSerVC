@@ -1,8 +1,8 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./App.css";
 import { HomePage } from "./pages/home";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { PokemonPage } from "./pages/pokemon";
+import "./App.css";
 
 const queryClient = new QueryClient();
 
